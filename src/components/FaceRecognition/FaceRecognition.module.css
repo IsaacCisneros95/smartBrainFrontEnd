@@ -1,0 +1,12 @@
+.boundingBox {
+  font-family: "Ringside", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  position: absolute;
+  box-shadow: 0 0 0 3px #149df2 inset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+  inset: 14.6028% 34.1261% 71.5294% 59.3312%;
+}
