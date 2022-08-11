@@ -1,9 +1,10 @@
 .logoContainer {
-    background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    width: 160px;
-    height: 160px;
+  background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 16px;
 }
