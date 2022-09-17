@@ -1,5 +1,4 @@
 import React from "react";
-import Clarifai from "clarifai";
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
@@ -10,10 +9,6 @@ import { loadFull } from "tsparticles";
 import "./App.css";
 import SignIn from "./components/SignIn/SignIn";
 import Register from "./components/Register/Register";
-
-const app = new Clarifai.App({
-  apiKey: "016ced89c184442fb44b229246a26c20",
-});
 
 const particlesInit = async (main) => {
   // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -207,11 +202,17 @@ class App extends React.Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+    fetch("https://smartbrain2023.herokuapp.com/imageurl", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        input: this.state.input,
+      }),
+    })
+      .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("http://localhost:4000/image", {
+          fetch("https://smartbrain2023.herokuapp.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
